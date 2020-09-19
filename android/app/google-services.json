@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185950402932",
+    "firebase_url": "https://souq-alfurat-new.firebaseio.com",
+    "project_id": "souq-alfurat-new",
+    "storage_bucket": "souq-alfurat-new.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185950402932:android:a3bec765de8b07cb435421",
+        "android_client_info": {
+          "package_name": "souqalfuratnew.souqalfuratnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185950402932-vii62n7mlp7n22cpb1131frjd6b7kk0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA43YYmc_wl4YcWJFuutM1iRYfPpkdXUIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185950402932-vii62n7mlp7n22cpb1131frjd6b7kk0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

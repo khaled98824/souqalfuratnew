@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>185950402932-q72f2ms2qm1ehcdfb0qsd5haq7pt0pet.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.185950402932-q72f2ms2qm1ehcdfb0qsd5haq7pt0pet</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEUzYZw2skm1Uz4YVo7Fc5cP9n4g5-m4k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>185950402932</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>souqalfuratnew.souqalfuratnew</string>
+	<key>PROJECT_ID</key>
+	<string>souq-alfurat-new</string>
+	<key>STORAGE_BUCKET</key>
+	<string>souq-alfurat-new.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:185950402932:ios:56743cf4e52a5818435421</string>
+	<key>DATABASE_URL</key>
+	<string>https://souq-alfurat-new.firebaseio.com</string>
+</dict>
+</plist>
