@@ -28,6 +28,24 @@ void main() {
       debugShowCheckedModeBanner: false,
       //initialRoute: Home.id,
       routes: {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         SearchUi.id : (context) => SearchUi(),
         Ads.id : (context) => Ads(),
         Home.id : (context) => Home(),

@@ -314,15 +314,15 @@ class _AddNewAdState extends State<AddNewAd> {
       maxWidth: 1200,
       maxHeight: 1400,
     );
-    var result = await FlutterImageCompress.compressAndGetFile(
-      croppedFile.path,
-      imageG.path,
-
-      quality: 120,
-    );
+    // var result = await FlutterImageCompress.compressAndGetFile(
+    //   croppedFile.path,
+    //   imageG.path,
+    //
+    //   quality: 80,
+    // );
 
     setState(() {
-      _image = result;
+      _image = croppedFile;
       print('compres:${_image.lengthSync()}');
     });
 
