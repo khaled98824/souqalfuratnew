@@ -221,7 +221,7 @@ class _MyAccountFState extends State<MyAccountF> {
                   Icon(
                     Icons.home,
                     color: Colors.blue[900],
-                    size: 29,
+                    size: 32,
                   ),
                 ]),
           )
@@ -248,7 +248,7 @@ class _MyAccountFState extends State<MyAccountF> {
               ),
               InkWell(
                   onTap: () {
-                    Navigator.of(context).pop();
+                   Navigator.pushReplacement(context, BouncyPageRoute(widget: Home()));
                   },
                   child: Icon(
                     Icons.arrow_forward,
@@ -274,9 +274,7 @@ class _MyAccountFState extends State<MyAccountF> {
                             await FirebaseAuth.instance.signOut().then((value) {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                    return LoginScreen(
-                                      autoLogin: false,
-                                    );
+                                    return LoginScreen(autoLogin: false,);
                                   }));
                             });
                           },

@@ -1302,6 +1302,7 @@ class _AddNewAdState extends State<AddNewAd> {
                 ),
                 Icon(
                   Icons.home,
+                  size: 32,
                   color: Colors.blue[900],
                 ),
               ]),

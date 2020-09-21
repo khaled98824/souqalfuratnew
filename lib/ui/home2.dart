@@ -24,7 +24,7 @@ import 'package:souq_alfurat/ui/categories/Mobile.dart';
 import 'package:souq_alfurat/ui/categories/OccupationsAndServices.dart';
 import 'myAccount.dart';
 
-class Home extends StatefulWidget {
+class Home2 extends StatefulWidget {
   static const String id = "Home";
   @override
   _HomeState createState() => _HomeState();
@@ -50,7 +50,7 @@ final List<String> _listItem = [
 
 bool categoryOrAds = true;
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home2> {
   final PushNotificationService _pushNotificationService=GetIt.I<PushNotificationService>();
   bool buttonPressed1 = false;
   bool buttonPressed2 = false;
@@ -84,224 +84,225 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.grey[200],
           body: SafeArea(
               child: Column(
-            children: <Widget>[
-              Padding(padding: EdgeInsets.only(top: 0)),
-              Heade(),
-              SizedBox(
-                height: 3,
-              ),
-              SearchAreaDesign(),
-              Padding(padding: EdgeInsets.only(top: 4)),
-              Wrap(
-                crossAxisAlignment: WrapCrossAlignment.center,
-                alignment: WrapAlignment.spaceAround,
                 children: <Widget>[
+                  Padding(padding: EdgeInsets.only(top: 0)),
+                  Heade(),
                   SizedBox(
-                    width: 180,
-                    child: GestureDetector(
-                        // FIRST BUTTON
-                        onTap: _letsPress1,
-                        child: buttonPressed1
-                            ? ButtonTapped(
-                                icon: icons1,
-                                btnState: 1,
-                              )
-                            : MyButton(
-                                icon: icons1,
-                                btnState: 1,
-                              )),
+                    height: 3,
                   ),
-                  SizedBox(
-                    width: 180,
-                    child: GestureDetector(
-                        // FIRST BUTTON
-                        onTap: _letsPress2,
-                        child: buttonPressed2
-                            ? ButtonTapped(
-                                icon: icons2,
-                                btnState: 0,
-                              )
-                            : MyButton(
-                                icon: icons2,
-                                btnState: 0,
-                              )),
+                  SearchAreaDesign(),
+                  Padding(padding: EdgeInsets.only(top: 4)),
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    alignment: WrapAlignment.spaceAround,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 180,
+                        child: GestureDetector(
+                          // FIRST BUTTON
+                            onTap: _letsPress1,
+                            child: buttonPressed1
+                                ? ButtonTapped(
+                              icon: icons1,
+                              btnState: 1,
+                            )
+                                : MyButton(
+                              icon: icons1,
+                              btnState: 1,
+                            )),
+                      ),
+                      SizedBox(
+                        width: 180,
+                        child: GestureDetector(
+                          // FIRST BUTTON
+                            onTap: _letsPress2,
+                            child: buttonPressed2
+                                ? ButtonTapped(
+                              icon: icons2,
+                              btnState: 0,
+                            )
+                                : MyButton(
+                              icon: icons2,
+                              btnState: 0,
+                            )),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              Padding(padding: EdgeInsets.only(top: 60)),
-              categoryOrAds
-                  ? Expanded(
-                      child: SingleChildScrollView(
-                        child: Container(
-                          child: Column(
-                            children: <Widget>[
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                      text: "أجهزة - إلكترونيات",
-                                      imagePath: _listItem[0],
-                                      callback: () {
-                                        Navigator.of(context).pushNamed(
-                                            DevicesAndElectronics.id);
-                                      }),
-                                  GridViewItems(
-                                    text: "السيارات - الدراجات",
-                                    imagePath: _listItem[1],
+                  Padding(padding: EdgeInsets.only(top: 60)),
+                  categoryOrAds
+                      ? Expanded(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        child: Column(
+                          children: <Widget>[
+                            Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              alignment: WrapAlignment.spaceAround,
+                              children: <Widget>[
+                                GridViewItems(
+                                    text: "أجهزة - إلكترونيات",
+                                    imagePath: _listItem[0],
                                     callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(CarsAndMotorCycles.id);
-                                    },
-                                  )
-                                ],
-                              ),
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                    text: "الموبايل",
-                                    imagePath: _listItem[2],
-                                    callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Mobile.id);
-                                    },
-                                  ),
-                                  GridViewItems(
-                                    text: "وظائف وأعمال",
-                                    imagePath: _listItem[3],
-                                    callback: () {
-                                      Navigator.push(context, BouncyPageRoute(widget: Ads(department: 'وظائف وأعمال',category: 'وظائف وأعمال')));
-                                    },
-                                  )
-                                ],
-                              ),
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                    text: "مهن وخدمات",
-                                    imagePath: _listItem[4],
-                                    callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(OccupationsAndServices.id);
-                                    },
-                                  ),
-                                  GridViewItems(
-                                    text: "المنزل",
-                                    imagePath: _listItem[5],
-                                    callback: () {
-                                      Navigator.of(context).pushNamed(Homes.id);
-                                    },
-                                  )
-                                ],
-                              ),
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                    text: "المعدات والشاحنات",
-                                    imagePath: _listItem[6],
-                                    callback: () {
-                                     Navigator.push(context, BouncyPageRoute(widget: Ads(department:"المعدات والشاحنات" ,category:"المعدات والشاحنات" ,)));
-                                    },
-                                  ),
-                                  GridViewItems(
-                                    text: "المواشي",
-                                    imagePath: _listItem[7],
-                                    callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Livestock.id);
-                                    },
-                                  )
-                                ],
-                              ),
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                    text: "الزراعة",
-                                    imagePath: _listItem[8],
-                                    callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Farming1.id);
-                                    },
-                                  ),
-                                  GridViewItems(
-                                    text: "ألعاب",
-                                    imagePath: _listItem[9],
-                                    callback: () {
-                                      Navigator.of(context).pushNamed(Games.id);
-                                    },
-                                  )
-                                ],
-                              ),
-                              Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.spaceAround,
-                                children: <Widget>[
-                                  GridViewItems(
-                                    text: "ألبسة",
-                                    imagePath: _listItem[10],
-                                    callback: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Clothes.id);
-                                    },
-                                  ),
-                                  GridViewItems(
-                                    text: "أطعمة",
-                                    imagePath: _listItem[11],
-                                    callback: () {
-                                      Navigator.of(context).pushNamed(Food.id);
-                                    },
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
+                                      Navigator.of(context).pushNamed(
+                                          DevicesAndElectronics.id);
+                                    }),
+                                GridViewItems(
+                                  text: "السيارات - الدراجات",
+                                  imagePath: _listItem[1],
+                                  callback: () {
+                                    Navigator.of(context)
+                                        .pushNamed(CarsAndMotorCycles.id);
+                                  },
+                                )
+                              ],
+                            ),
+                            // Wrap(
+                            //   crossAxisAlignment: WrapCrossAlignment.center,
+                            //   alignment: WrapAlignment.spaceAround,
+                            //   children: <Widget>[
+                            //     GridViewItems(
+                            //       text: "الموبايل",
+                            //       imagePath: _listItem[2],
+                            //       callback: () {
+                            //         Navigator.of(context)
+                            //             .pushNamed(Mobile.id);
+                            //       },
+                            //     ),
+                            //     GridViewItems(
+                            //       text: "وظائف وأعمال",
+                            //       imagePath: _listItem[3],
+                            //       callback: () {
+                            //         Navigator.push(context, BouncyPageRoute(widget: Ads(department: 'وظائف وأعمال',category: 'وظائف وأعمال')));
+                            //       },
+                            //     )
+                            //   ],
+                            // ),
+                            // Wrap(
+                            //   crossAxisAlignment: WrapCrossAlignment.center,
+                            //   alignment: WrapAlignment.spaceAround,
+                            //   children: <Widget>[
+                            //     GridViewItems(
+                            //       text: "مهن وخدمات",
+                            //       imagePath: _listItem[4],
+                            //       callback: () {
+                            //         Navigator.of(context)
+                            //             .pushNamed(OccupationsAndServices.id);
+                            //       },
+                            //     ),
+                            //     GridViewItems(
+                            //       text: "المنزل",
+                            //       imagePath: _listItem[5],
+                            //       callback: () {
+                            //         Navigator.of(context).pushNamed(Homes.id);
+                            //       },
+                            //     )
+                            //   ],
+                            // ),
+                            // Wrap(
+                            //   crossAxisAlignment: WrapCrossAlignment.center,
+                            //   alignment: WrapAlignment.spaceAround,
+                            //   children: <Widget>[
+                            //     GridViewItems(
+                            //       text: "المعدات والشاحنات",
+                            //       imagePath: _listItem[6],
+                            //       callback: () {
+                            //         Navigator.push(context, BouncyPageRoute(widget: Ads(department:"المعدات والشاحنات" ,category:"المعدات والشاحنات" ,)));
+                            //       },
+                            //     ),
+                            //     GridViewItems(
+                            //       text: "المواشي",
+                            //       imagePath: _listItem[7],
+                            //       callback: () {
+                            //         Navigator.of(context)
+                            //             .pushNamed(Livestock.id);
+                            //       },
+                            //     )
+                            //   ],
+                            // ),
+                            // Wrap(
+                            //   crossAxisAlignment: WrapCrossAlignment.center,
+                            //   alignment: WrapAlignment.spaceAround,
+                            //   children: <Widget>[
+                            //     GridViewItems(
+                            //       text: "الزراعة",
+                            //       imagePath: _listItem[8],
+                            //       callback: () {
+                            //         Navigator.of(context)
+                            //             .pushNamed(Farming1.id);
+                            //       },
+                            //     ),
+                            //     GridViewItems(
+                            //       text: "ألعاب",
+                            //       imagePath: _listItem[9],
+                            //       callback: () {
+                            //         Navigator.of(context).pushNamed(Games.id);
+                            //       },
+                            //     )
+                            //   ],
+                            // ),
+                            // Wrap(
+                            //   crossAxisAlignment: WrapCrossAlignment.center,
+                            //   alignment: WrapAlignment.spaceAround,
+                            //   children: <Widget>[
+                            //     GridViewItems(
+                            //       text: "ألبسة",
+                            //       imagePath: _listItem[10],
+                            //       callback: () {
+                            //         // Navigator.of(context)
+                            //         //     .pushNamed(Clothes.id);
+                            //       },
+                            //     ),
+                            //     GridViewItems(
+                            //       text: "أطعمة",
+                            //       imagePath: _listItem[11],
+                            //       callback: () {
+                            //         Navigator.of(context).pushNamed(Food.id);
+                            //       },
+                            //     )
+                            //   ],
+                            // ),
+                            Text('data')
+                          ],
                         ),
                       ),
-                    )
-                  : Expanded(
+                    ),
+                  )
+                      : Expanded(
                       child: Container(
                           child: Padding(
-                      padding: EdgeInsets.only(top: 12),
-                      child: Stack(
-                        children: <Widget>[
+                            padding: EdgeInsets.only(top: 12),
+                            child: Stack(
+                              children: <Widget>[
 
-                          Align(
-                            alignment: Alignment(1, -1.1),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 16, horizontal: 4),
-                              child: Card(
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: 6, top: 10, right: 30, left: 30),
-                                  child: Text(
-                                    'أحدث الإعلانات',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontFamily: 'AmiriQuran',
-                                        height: 1),
+                                Align(
+                                  alignment: Alignment(1, -1.1),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 16, horizontal: 4),
+                                    child: Card(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            bottom: 6, top: 10, right: 30, left: 30),
+                                        child: Text(
+                                          'أحدث الإعلانات',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontFamily: 'AmiriQuran',
+                                              height: 1),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Padding(
+                                    padding: EdgeInsets.only(top: 30),
+                                    child: NewAds()),
+                              ],
                             ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(top: 30),
-                              child: NewAds()),
-                        ],
-                      ),
-                    ))),
-            ],
-          )),
+                          ))),
+                ],
+              )),
           bottomNavigationBar: CurvedNavigationBar(
               color: Color(0xffF26726),
               backgroundColor: Colors.orange,
@@ -313,27 +314,9 @@ class _HomeState extends State<Home> {
               onTap: (index) {
                 Timer(Duration(milliseconds: 300), () {
                   if (index == 0) {
-                    if (loginStatus){
-                      Navigator.of(context).pushNamed(MyAccount.id);
-                    }else{
-                      print('no');
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                            return LoginScreen(autoLogin: false,);
-                          }));
-                    }
+                    Navigator.of(context).pushNamed(MyAccount.id);
                   } else if (index == 1) {
-                    if (loginStatus){
-                      Navigator.of(context).pushNamed(AddNewAd.id);
-                    }else{
-                      loginStatus=false;
-                      print('no');
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                            return LoginScreen(autoLogin: false,);
-                          }));
-                    }
-
+                    Navigator.of(context).pushNamed(AddNewAd.id);
                   }
                 });
               },
@@ -350,56 +333,55 @@ class _HomeState extends State<Home> {
                 ),
                 Icon(
                   Icons.home,
-                  size: 32,
                   color: Colors.blue[900],
                 ),
               ]),
         ),
-        Align(
-          alignment: Alignment(1, 1),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal:screenSizeWidth<400?38: 49),
-            child: Text(
-              'الرئيسية',
-              style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'AmiriQuran',
-                  height: 1),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment(-1, 1),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal:screenSizeWidth<400?40: 51),
-            child: Text(
-              'حسابي',
-              style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'AmiriQuran',
-                  height: 1),
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment(-0.1, 1),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-            child: Text(
-              'أضف إعلان',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'AmiriQuran',
-                  height: 1),
-            ),
-          ),
-        ),
+        // Align(
+        //   alignment: Alignment(1, 1),
+        //   child: Padding(
+        //     padding: EdgeInsets.symmetric(vertical: 10, horizontal:screenSizeWidth<400?38: 49),
+        //     child: Text(
+        //       'الرئيسية',
+        //       style: TextStyle(
+        //           fontSize: 15,
+        //           color: Colors.white,
+        //           decoration: TextDecoration.none,
+        //           fontFamily: 'AmiriQuran',
+        //           height: 1),
+        //     ),
+        //   ),
+        // ),
+        // Align(
+        //   alignment: Alignment(-1, 1),
+        //   child: Padding(
+        //     padding: EdgeInsets.symmetric(vertical: 10, horizontal:screenSizeWidth<400?40: 51),
+        //     child: Text(
+        //       'حسابي',
+        //       style: TextStyle(
+        //           fontSize: 15,
+        //           color: Colors.white,
+        //           decoration: TextDecoration.none,
+        //           fontFamily: 'AmiriQuran',
+        //           height: 1),
+        //     ),
+        //   ),
+        // ),
+        // Align(
+        //   alignment: Alignment(-0.1, 1),
+        //   child: Padding(
+        //     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+        //     child: Text(
+        //       'أضف إعلان',
+        //       style: TextStyle(
+        //           fontSize: 16,
+        //           color: Colors.white,
+        //           decoration: TextDecoration.none,
+        //           fontFamily: 'AmiriQuran',
+        //           height: 1),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
@@ -416,24 +398,24 @@ Widget Heade() {
     children: <Widget>[
       Container(
           child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Padding(padding: EdgeInsets.symmetric(horizontal: 1,vertical: 1)),
-          Text(
-            'بيع واشتري كل ما تريد بكل سهولة',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontFamily: 'AmiriQuran',
-              height: 1,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 0,horizontal: 3),
-              child: Image.asset('assets/images/logo.png',height: 51,width: 104,fit: BoxFit.fill,))
-        ],
-      )),
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(padding: EdgeInsets.symmetric(horizontal: 1,vertical: 1)),
+              Text(
+                'بيع واشتري كل ما تريد بكل سهولة',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontFamily: 'AmiriQuran',
+                  height: 1,
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(vertical: 0,horizontal: 3),
+                  child: Image.asset('assets/images/logo.png',height: 51,width: 104,fit: BoxFit.fill,))
+            ],
+          )),
     ],
   );
 }
@@ -513,23 +495,23 @@ class ButtonTapped extends StatelessWidget {
                 alignment: Alignment(-0.2, 0),
                 child: btnState == 1
                     ? Text(
-                        'الإعلانات',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'AmiriQuran',
-                          height: 0,
-                        ),
-                      )
+                  'الإعلانات',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'AmiriQuran',
+                    height: 0,
+                  ),
+                )
                     : Text(
-                        'الأقسام',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'AmiriQuran',
-                          height: 0,
-                        ),
-                      ),
+                  'الأقسام',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'AmiriQuran',
+                    height: 0,
+                  ),
+                ),
               )
             ],
           ),
@@ -624,29 +606,29 @@ class MyButton extends StatelessWidget {
               alignment: Alignment(-0.2, 0),
               child: btnState == 1
                   ? Padding(
-                      padding: EdgeInsets.only(bottom: 3),
-                      child: Text(
-                        'الإعلانات',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'AmiriQuran',
-                          height: 0,
-                        ),
-                      ),
-                    )
+                padding: EdgeInsets.only(bottom: 3),
+                child: Text(
+                  'الإعلانات',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'AmiriQuran',
+                    height: 0,
+                  ),
+                ),
+              )
                   : Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: Text(
-                        'الأقسام',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'AmiriQuran',
-                          height: 0,
-                        ),
-                      ),
-                    ),
+                padding: EdgeInsets.only(bottom: 5),
+                child: Text(
+                  'الأقسام',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'AmiriQuran',
+                    height: 0,
+                  ),
+                ),
+              ),
             )
           ],
         ),
@@ -767,7 +749,7 @@ class _NewAdsState extends State<NewAds> {
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
                   return new Text('Loading...');
-                 default:
+                default:
                   return Container(
                     child: new GridView.count(
                       crossAxisCount: 2,
@@ -804,7 +786,7 @@ class _NewAdsState extends State<NewAds> {
                                     ),
                                     Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                      CrossAxisAlignment.end,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Text(
@@ -825,7 +807,7 @@ class _NewAdsState extends State<NewAds> {
                                     ),
                                     Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                      CrossAxisAlignment.end,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Text(
@@ -851,7 +833,7 @@ class _NewAdsState extends State<NewAds> {
                                     ),
                                     Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                      CrossAxisAlignment.end,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Text(

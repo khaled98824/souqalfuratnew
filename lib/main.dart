@@ -17,6 +17,7 @@ import 'package:souq_alfurat/ui/categories/Livestocks.dart';
 import 'package:souq_alfurat/ui/categories/Mobile.dart';
 import 'package:souq_alfurat/ui/categories/OccupationsAndServices.dart';
 import 'package:souq_alfurat/ui/myAccount.dart';
+import 'package:souq_alfurat/ui/home2.dart';
 
 void setupLocator() {
   GetIt.I.registerLazySingleton(() => PushNotificationService());
@@ -28,27 +29,10 @@ void main() {
       debugShowCheckedModeBanner: false,
       //initialRoute: Home.id,
       routes: {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         SearchUi.id : (context) => SearchUi(),
         Ads.id : (context) => Ads(),
         Home.id : (context) => Home(),
+        LoginScreen.id : (context) => LoginScreen(),
         MyAccount.id : (context) => MyAccount(),
         AddNewAd.id : (context) => AddNewAd(),
         Food.id : (context) => Food(),
