@@ -2,12 +2,14 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:souq_alfurat/Auth/Login.dart';
 import 'package:souq_alfurat/Service/PushNotificationService.dart';
 import 'package:souq_alfurat/models/AdsModel.dart';
 import 'package:souq_alfurat/models/PageRoute.dart';
+import 'package:souq_alfurat/models/StaticVirables.dart';
 import 'package:souq_alfurat/ui/AddNewAd.dart';
 import 'package:souq_alfurat/ui/AllAds.dart';
 import 'package:souq_alfurat/ui/SerchData.dart';
@@ -74,10 +76,31 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    Timer(Duration(microseconds: 700),(){
+      FirebaseAuth.instance.currentUser().then((value) {
+        if(value==null){
+          setState(() {
+            checkLogin=false;
+            loginStatus=false;
+            print('object');
+          }
+          );
+        }else{
+          setState(() {
+            checkLogin=true;
+          });
+          print('checkLogincc${value.email}');
+        }
+      });
+    });
     _pushNotificationService.initialise();
   }
   @override
   Widget build(BuildContext context) {
+    Virables.screenSizeWidth = screenSizeWidth;
+    Virables.screenSizeHeight = screenSizeHieght;
+    screenSizeWidth = MediaQuery.of(context).size.width;
+    screenSizeHieght = MediaQuery.of(context).size.height;
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -540,7 +563,7 @@ class ButtonTapped extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                     color: Colors.white,
-                    offset: Offset(4.0, 4.0),
+                    offset: Offset(0.5, 0.5),
                     spreadRadius: 3.0),
                 BoxShadow(
                   color: Colors.grey[600],
@@ -774,7 +797,7 @@ class _NewAdsState extends State<NewAds> {
                       crossAxisSpacing: 5,
                       mainAxisSpacing: 5,
                       childAspectRatio:screenSizeHieght>800? 0.7:0.6,
-                      children: List.generate(snapshot.data.documents.length<20?4:19, (index) {
+                      children: List.generate(snapshot.data.documents.length<20?4:13, (index) {
                         return InkWell(
                           onTap: () {
                             Navigator.push(context, BouncyPageRoute(widget: ShowAd(documentId: snapshot.data.documents[index].documentID,)));

@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:souq_alfurat/Auth/Login.dart';
 import 'package:souq_alfurat/models/PageRoute.dart';
 import 'package:souq_alfurat/Admin/Admin.dart';
@@ -271,7 +272,9 @@ class _MyAccountFState extends State<MyAccountF> {
                       ),
                       InkWell(
                           onTap: () async {
-                            await FirebaseAuth.instance.signOut().then((value) {
+                            await FirebaseAuth.instance.signOut().then((value) async {
+                              SharedPreferences sharedPref = await SharedPreferences.getInstance();
+                              sharedPref.setInt('navigatorSelect', null);
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                     return LoginScreen(autoLogin: false,);

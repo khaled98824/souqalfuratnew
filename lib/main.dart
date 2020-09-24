@@ -6,6 +6,7 @@ import 'package:souq_alfurat/ui/AddNewAd.dart';
 import 'package:souq_alfurat/ui/AllAds.dart';
 import 'package:souq_alfurat/ui/Home.dart';
 import 'package:souq_alfurat/ui/SearchUi.dart';
+import 'package:souq_alfurat/ui/SplashScreen.dart';
 import 'package:souq_alfurat/ui/categories/Cars&MotorCycles.dart';
 import 'package:souq_alfurat/ui/categories/Clothes.dart';
 import 'package:souq_alfurat/ui/categories/DevicesAndElectronics.dart';
@@ -45,7 +46,7 @@ void main() {
         DevicesAndElectronics.id : (context) => DevicesAndElectronics(),
         CarsAndMotorCycles.id : (context) => CarsAndMotorCycles(),
       },
-      home: LoginScreen(),
+      home: SplashScreen(),
     )
   );
 }

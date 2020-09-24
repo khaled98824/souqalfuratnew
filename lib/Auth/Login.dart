@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:souq_alfurat/Auth/Register2.dart';
 import 'package:souq_alfurat/Service/PushNotificationService.dart';
 import 'package:souq_alfurat/models/StaticVirables.dart';
@@ -23,26 +24,23 @@ double screenSizeHieght;
 bool loginStatus = false;
 bool checkboxVal = false;
 bool logout ;
-
+bool checkLogin=false;
 class _LoginScreenState extends State<LoginScreen> {
   bool autoLogin ;
   _LoginScreenState({this.autoLogin});
 
   void initState() {
     super.initState();
-    if(autoLogin==false){
-      checkboxVal=false;
-
-    }else{
+    if (autoLogin == false) {
+      checkboxVal = false;
+    } else {
       checkAutoLogin();
     }
-
   }
 
-  checkAutoLogin()async
-  {
+  checkAutoLogin()async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
-    if(sharedPref.getBool('autoLogin') !=null){
+    if(sharedPref.getBool('autoLogin') ==true){
       setState(() {
         checkboxVal = sharedPref.getBool('autoLogin');
         if(checkboxVal){
@@ -72,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     sharedPref.setString('email', _emailcontroller.text);
     sharedPref.setString('password', _passwordcontroller.text);
+    sharedPref.setInt('navigatorSelect', 1);
   }
 
   login() async {
@@ -118,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
     Virables.login = loginStatus;
     Virables.autoLogin = logout;
     return Scaffold(
-      body: Container(
+      body:Container(
         padding: EdgeInsets.all(16),
         child: Form(
             key: _formkey,

@@ -35,9 +35,9 @@
 	<key>NSMotionUsageDescription</key>
 	<string>This app needs to be able to access your motion use</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Need to upload image</string>
+	<string>The application needs access to the images and upload them in order for the user to view his ads in the application</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Ad Drive app requires permission for the photo library to work</string>
+	<string>Ad Drive app requires permission for the photo library to work,to upload image to firebase </string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
