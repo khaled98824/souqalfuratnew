@@ -300,16 +300,16 @@ class _HomeState extends State<Home> {
                             alignment: Alignment(1, -1.1),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: 16, horizontal: 4),
+                                  vertical: 13, horizontal: 4),
                               child: Card(
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                      bottom: 6, top: 10, right: 30, left: 30),
+                                      bottom: 6, top: 6, right: 30, left: 30),
                                   child: Text(
                                     'أحدث الإعلانات',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontFamily: 'AmiriQuran',
                                         height: 1),
                                   ),

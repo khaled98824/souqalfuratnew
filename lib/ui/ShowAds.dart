@@ -8,6 +8,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:intl/intl.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:souq_alfurat/Auth/Login.dart';
 import 'package:souq_alfurat/models/PageRoute.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart';
@@ -506,7 +507,7 @@ class _ShowAdState extends State<ShowAd> {
                           return Center(
                             child:Column(
                               children: <Widget>[
-                                CircularProgressIndicator(strokeWidth: 1,),
+                               // CircularProgressIndicator(strokeWidth: 1,),
                                 SizedBox(height: 8,),
                                 Text('!...لا توجد تعليقات ',style: TextStyle(
                                   fontSize: 16,
@@ -543,7 +544,7 @@ class _ShowAdState extends State<ShowAd> {
                 ),
                 SizedBox(
                   height: 42,
-                  child: Container(
+                  child: loginStatus?Container(
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -567,7 +568,7 @@ class _ShowAdState extends State<ShowAd> {
                         )
                       ],
                     ),
-                  ),
+                  ):Container(),
                 )
               ],
             ),
