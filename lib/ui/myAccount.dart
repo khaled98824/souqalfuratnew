@@ -162,17 +162,8 @@ class _MyAccountFState extends State<MyAccountF> {
                                                 onTap: () async {
                                                   await Alert(context);
                                                   deleteThisAd
-                                                      ? Firestore.instance
-                                                      .collection('Ads')
-                                                      .document(snapshot
-                                                      .data
-                                                      .documents[
-                                                  index]
-                                                      .documentID)
-                                                      .delete()
-                                                      .then((value) {
-                                                    print(
-                                                        'delete done');
+                                                      ? Firestore.instance.collection('Ads').document(
+                                                      snapshot.data.documents[index].documentID).delete().then((value) {print('delete done');
                                                   })
                                                       : print('Do not');
                                                 },
