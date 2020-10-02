@@ -153,7 +153,8 @@ class _AddNewAdState extends State<AddNewAd> {
   ];
   var dropSelectItemCategory = 'إختر القسم الرئيسي';
   String category = '';
-  var dropItemsArea = ['إختر المنطقة من هنا',"العاصمة","حولي","الأحمدي","الجهراء"."الفروانية","مبارك الكبير"];
+  var dropItemsArea = ['إختر المنطقة من هنا',
+  ];
   var dropSelectItemArea = 'إختر المنطقة من هنا';
   String area = '';
   bool chacked = false;
