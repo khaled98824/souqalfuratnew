@@ -28,6 +28,7 @@ DocumentSnapshot documentsAds;
 DocumentSnapshot documentsUser;
 DocumentSnapshot documentMessages;
 List<Widget> messages;
+bool showMessages=false;
 TextEditingController messageController = TextEditingController();
 ScrollController scrollController = ScrollController();
 
@@ -46,6 +47,10 @@ class _ShowAdState extends State<ShowAd> {
     // TODO: implement initState
     super.initState();
    getDocumentValue();
+   Timer(Duration(microseconds: 500), (){
+     print(documentId);
+     showMessages=true;
+   });
   }
 
   getDocumentValue()async{
@@ -224,7 +229,8 @@ class _ShowAdState extends State<ShowAd> {
                       ),
                     ),InkWell(
                       onTap: (){
-                        launch('tel:${documentsAds['phone']}');
+                        //launch('tel:${documentsAds['phone']}');
+                        print(documentId);
                       },
                       child: Container(
                         width: 130,
@@ -498,7 +504,7 @@ class _ShowAdState extends State<ShowAd> {
                   ),
                 ),
 
-                   Padding(
+                   showMessages? Padding(
                     padding:EdgeInsets.only(top: 10,right: 10,left: 10),
                     child: StreamBuilder<QuerySnapshot>(
                       stream: _firestore.collection("messages").where('Ad_id',isEqualTo:documentId ).orderBy('date').snapshots(),
@@ -537,7 +543,7 @@ class _ShowAdState extends State<ShowAd> {
                         );
                       },
                     ),
-                  ),
+                  ):Container(),
 
                 SizedBox(
                   height: 10,
