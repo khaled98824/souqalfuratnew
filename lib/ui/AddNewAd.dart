@@ -153,20 +153,7 @@ class _AddNewAdState extends State<AddNewAd> {
   ];
   var dropSelectItemCategory = 'إختر القسم الرئيسي';
   String category = '';
-  var dropItemsArea = ['إختر المنطقة من هنا', 'الباغوز', 'السوسة',
-    'الشعفة', 'البوخاطر', 'هجين', 'البحرة',
-    'غرانيج', 'الكشكية', 'ابو حمام', 'ابو حردوب',
-    'البورحمة', 'سويدان', 'درنج', 'جمة',
-    'الشنان', 'الطيانة', 'ذيبان', 'الحوايج',
-    'الشحيل', 'الزر', 'البصيرة', 'الحجنة',
-    'الصور', 'الشدادي',
-    'الحسكة', 'جديد عقيدات', 'جديد بكارة', 'خشام',
-    'مراط', 'حطلة', 'الحسينية', 'الكسرة',
-    'حمار العلي','دير الزور',
-    'الرقة', 'منبج', 'حلب',
-    'إدلب', 'حمص', 'حماة',
-    'دمشق', 'درعا', 'حلب',
-  ];
+  var dropItemsArea = [];
   var dropSelectItemArea = 'إختر المنطقة من هنا';
   String area = '';
   bool chacked = false;
@@ -307,7 +294,6 @@ class _AddNewAdState extends State<AddNewAd> {
   File _image;
   Future getImage(context) async {
     imageG = await ImagePicker.pickImage(source: ImageSource.gallery);
-    //File imageC = await ImagePicker.pickImage(source: ImageSource.camera);
 
     File croppedFile = await ImageCropper.cropImage(
       sourcePath: imageG.path,
@@ -964,7 +950,7 @@ class _AddNewAdState extends State<AddNewAd> {
                                     'جديد',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                        fontSize: 21,
+                                        fontSize: 19,
                                         fontFamily: 'AmiriQuran',
                                         height: 0.5),
                                   ),
@@ -984,7 +970,7 @@ class _AddNewAdState extends State<AddNewAd> {
                                     'مستعمل',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                        fontSize: 21,
+                                        fontSize: 19,
                                         fontFamily: 'AmiriQuran',
                                         height: 0.5),
                                   ),
@@ -1076,16 +1062,7 @@ class _AddNewAdState extends State<AddNewAd> {
                       alignment: WrapAlignment.end,
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.only(right: 4, top: 3),
-                            child: Text(
-                              '.ل س ',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'AmiriQuran',
-                                  height: 1.5),
-                            )),
+
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -1135,7 +1112,7 @@ class _AddNewAdState extends State<AddNewAd> {
                         Padding(
                             padding: EdgeInsets.only(right: 2, top: 1),
                             child: Icon(
-                              Icons.payment,
+                              Icons.attach_money,
                               size: 40,
                               color: Colors.blueAccent,
                             )),
@@ -1219,8 +1196,8 @@ class _AddNewAdState extends State<AddNewAd> {
                       alignment: WrapAlignment.center,
                       children: <Widget>[
                         SizedBox(
-                          width: 150,
-                          height: 52,
+                          width: 140,
+                          height: 54,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(30),
                             child: InkWell(
@@ -1254,7 +1231,7 @@ class _AddNewAdState extends State<AddNewAd> {
                                   child: Text('أنشر إعلانك',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          fontSize: 22,
+                                          fontSize: 21,
                                           fontFamily: 'AmiriQuran',
                                           height: 1,
                                           color: Colors.white)),

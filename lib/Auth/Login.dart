@@ -4,7 +4,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:souq_alfurat/Auth/Register2.dart';
 import 'package:souq_alfurat/Service/PushNotificationService.dart';
 import 'package:souq_alfurat/models/StaticVirables.dart';
