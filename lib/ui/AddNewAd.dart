@@ -153,7 +153,7 @@ class _AddNewAdState extends State<AddNewAd> {
   ];
   var dropSelectItemCategory = 'إختر القسم الرئيسي';
   String category = '';
-  var dropItemsArea = ['إختر المنطقة من هنا',"العاصمة","حولي","الأحمدي","الجهراء"."الفروانية","مبارك الكبير",];
+  List <String> dropItemsArea = ['إختر المنطقة من هنا',"العاصمة","حولي","الأحمدي","الجهراء","الفروانية","مبارك الكبير",];
   var dropSelectItemArea = 'إختر المنطقة من هنا';
   String area = '';
   bool chacked = false;
@@ -374,7 +374,34 @@ class _AddNewAdState extends State<AddNewAd> {
     } else {
       getIosInfo();
     }
+    addNewZ();
   }
+  QuerySnapshot documentsAds;
+  List<String> newZList =[];
+  DocumentSnapshot usersList;
+
+  addNewZ()async{
+    var firestore = Firestore.instance;
+
+    QuerySnapshot qusListUsers = await firestore.collection('NewZ').getDocuments();
+    if(qusListUsers!=null){
+      for (int i=0; qusListUsers.documents.length>newZList.length;  i ++){
+        setState(() {
+          print(qusListUsers.documents.length);
+          newZList.add(qusListUsers.documents[i]['Z']);
+
+        });
+      }
+       print(newZList);
+      if(newZList.length>2){
+        setState(() {
+          dropItemsArea=newZList;
+
+        });
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
